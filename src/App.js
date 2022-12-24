@@ -1,9 +1,7 @@
 import './App.css';
 
 function App() {
-  return (
-    <div>React Todo</div>
-  );
+  return <div>React Todo</div>;
 }
 
 export default App;
