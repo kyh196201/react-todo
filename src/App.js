@@ -1,7 +1,39 @@
 import './App.css';
 
 function App() {
-  return <div>React Todo</div>;
+  return (
+    <div className="app">
+      <div className="container">
+        <header className="header">
+          <button type="button">다크/라이트 모드</button>
+          <nav className="filters">
+            <ul>
+              <li>all</li>
+              <li>active</li>
+              <li>completed</li>
+            </ul>
+          </nav>
+        </header>
+
+        <section className="body">
+          <ul className="todo-list">
+            <li className="todo-item">
+              <input type="checkbox" name="toggle-todo" />
+              <span>강의보기</span>
+              <button type="button">할 일 삭제하기</button>
+            </li>
+          </ul>
+        </section>
+
+        <footer className="footer">
+          <form>
+            <input type="text" />
+            <button type="button">할 일 추가하기</button>
+          </form>
+        </footer>
+      </div>
+    </div>
+  );
 }
 
 export default App;

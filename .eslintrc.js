@@ -20,6 +20,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
+  ignorePatterns: ['src/reportWebVitals.js'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-uses-react': 0,
