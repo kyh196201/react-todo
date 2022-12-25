@@ -44,6 +44,7 @@ function App() {
     });
   };
 
+  // 할 일 토글하기
   const handleToggle = (id, checked = true) => {
     setTodoList(prev => {
       return prev.map(todo => {

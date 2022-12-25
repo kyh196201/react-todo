@@ -1,5 +1,6 @@
 import { BsFillSunFill } from 'react-icons/bs';
 import styles from '../styles/header.module.css';
+import TodoFilters from './todo-filters';
 
 export default function Header() {
   return (
@@ -8,26 +9,7 @@ export default function Header() {
         <BsFillSunFill />
       </button>
 
-      <ul className={styles['header__filter-list']}>
-        <li>
-          <label className={styles.header__filter}>
-            <input type="radio" name="filter" />
-            <span>All</span>
-          </label>
-        </li>
-        <li>
-          <label className={`${styles.header__filter}`}>
-            <input type="radio" name="filter" />
-            <span>Active</span>
-          </label>
-        </li>
-        <li>
-          <label className={styles.header__filter}>
-            <input type="radio" name="filter" />
-            <span>Completed</span>
-          </label>
-        </li>
-      </ul>
+      <TodoFilters />
     </header>
   );
 }
