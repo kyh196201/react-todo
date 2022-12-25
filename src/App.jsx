@@ -44,13 +44,30 @@ function App() {
     });
   };
 
+  const handleToggle = (id, checked = true) => {
+    setTodoList(prev => {
+      return prev.map(todo => {
+        if (todo.id !== id) return todo;
+
+        return {
+          ...todo,
+          completed: checked,
+        };
+      });
+    });
+  };
+
   return (
     <div className="app">
       <main className="container">
         <Header />
 
         <div className="body">
-          <TodoList todoList={todoList} onDelete={handleDelete} />
+          <TodoList
+            todoList={todoList}
+            onDelete={handleDelete}
+            onToggle={handleToggle}
+          />
         </div>
 
         <TodoForm onAdd={handleAdd} />

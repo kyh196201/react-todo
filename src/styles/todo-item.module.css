@@ -54,6 +54,11 @@
   color: var(--white);
 }
 
+.completed {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
 .todo-item__delete {
   border-radius: 50%;
   background-color: var(--space);
