@@ -3,7 +3,7 @@ import styles from '../styles/todo-list.module.css';
 
 import TodoItem from './todo-item';
 
-export default function TodoList({ todoList = [] }) {
+export default function TodoList({ todoList = [], onDelete }) {
   const isEmpty = todoList.length === 0;
 
   return (
@@ -13,7 +13,7 @@ export default function TodoList({ todoList = [] }) {
       ) : (
         <ul>
           {todoList.map(todo => (
-            <TodoItem key={todo.id} todo={todo} />
+            <TodoItem key={todo.id} todo={todo} onDelete={onDelete} />
           ))}
         </ul>
       )}

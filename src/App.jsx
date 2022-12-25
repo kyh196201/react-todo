@@ -21,7 +21,8 @@ const initialTodos = [
 function App() {
   const [todoList, setTodoList] = useState(initialTodos);
 
-  const handleAddTodo = text => {
+  // 할 일 추가하기
+  const handleAdd = text => {
     setTodoList(prev => {
       const id = createTodoId(prev);
 
@@ -36,14 +37,21 @@ function App() {
     });
   };
 
+  // 할 일 삭제하기
+  const handleDelete = id => {
+    setTodoList(prev => {
+      return prev.filter(todo => todo.id !== id);
+    });
+  };
+
   return (
     <div className="app">
       <div className="container">
         <Header />
 
-        <TodoList todoList={todoList} />
+        <TodoList todoList={todoList} onDelete={handleDelete} />
 
-        <TodoForm onAddTodo={handleAddTodo} />
+        <TodoForm onAdd={handleAdd} />
       </div>
     </div>
   );

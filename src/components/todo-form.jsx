@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/todo-form.module.css';
 
-export default function TodoForm({ onAddTodo }) {
+export default function TodoForm({ onAdd }) {
   const [todoInput, setTodoInput] = useState('');
   const handleChange = e => {
     setTodoInput(e.target.value);
@@ -14,7 +14,7 @@ export default function TodoForm({ onAddTodo }) {
 
     if (!text.length) return;
 
-    onAddTodo(text);
+    onAdd(text);
 
     setTodoInput('');
   };
