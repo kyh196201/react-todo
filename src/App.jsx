@@ -46,13 +46,15 @@ function App() {
 
   return (
     <div className="app">
-      <div className="container">
+      <main className="container">
         <Header />
 
-        <TodoList todoList={todoList} onDelete={handleDelete} />
+        <div className="body">
+          <TodoList todoList={todoList} onDelete={handleDelete} />
+        </div>
 
         <TodoForm onAdd={handleAdd} />
-      </div>
+      </main>
     </div>
   );
 }
