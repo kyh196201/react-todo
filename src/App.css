@@ -38,10 +38,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.footer {
-  padding: 1rem;
-}
-
 .btn {
   display: inline-flex;
   justify-content: center;

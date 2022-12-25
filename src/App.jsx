@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/header';
-
+import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
 
 function App() {
@@ -11,12 +11,7 @@ function App() {
 
         <TodoList />
 
-        <footer className="footer">
-          <form>
-            <input type="text" />
-            <button type="button">할 일 추가하기</button>
-          </form>
-        </footer>
+        <TodoForm />
       </div>
     </div>
   );

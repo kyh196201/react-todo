@@ -5,9 +5,11 @@ import TodoItem from './todo-item';
 
 export default function TodoList() {
   return (
-    <ul className={styles['todo-list']}>
-      <TodoItem />
-      <TodoItem />
-    </ul>
+    <div className={styles.wrapper}>
+      <ul>
+        <TodoItem />
+        <TodoItem />
+      </ul>
+    </div>
   );
 }
