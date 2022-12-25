@@ -5,7 +5,7 @@ import TodoItem from './todo-item';
 
 export default function TodoList() {
   return (
-    <ul>
+    <ul className={styles['todo-list']}>
       <TodoItem />
       <TodoItem />
     </ul>

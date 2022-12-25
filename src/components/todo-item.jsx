@@ -11,7 +11,7 @@ export default function TodoItem() {
 
       <p className={styles['todo-item__text']}>강의보기</p>
 
-      <button type="button" className={styles['todo-item__delete']}>
+      <button type="button" className={`btn ${styles['todo-item__delete']}`}>
         <AiFillDelete />
       </button>
     </li>
