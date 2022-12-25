@@ -3,13 +3,20 @@ import styles from '../styles/todo-list.module.css';
 
 import TodoItem from './todo-item';
 
-export default function TodoList() {
+export default function TodoList({ todoList = [] }) {
+  const isEmpty = todoList.length === 0;
+
   return (
     <div className={styles.wrapper}>
-      <ul>
-        <TodoItem />
-        <TodoItem />
-      </ul>
+      {isEmpty ? (
+        <p className={styles.empty}>할 일을 추가해주세요 😃</p>
+      ) : (
+        <ul>
+          {todoList.map(todo => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
