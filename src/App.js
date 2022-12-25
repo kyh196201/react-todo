@@ -1,5 +1,7 @@
 import './App.css';
 
+import TodoList from './components/todo-list';
+
 function App() {
   return (
     <div className="app">
@@ -16,13 +18,7 @@ function App() {
         </header>
 
         <section className="body">
-          <ul className="todo-list">
-            <li className="todo-item">
-              <input type="checkbox" name="toggle-todo" />
-              <span>강의보기</span>
-              <button type="button">할 일 삭제하기</button>
-            </li>
-          </ul>
+          <TodoList />
         </section>
 
         <footer className="footer">

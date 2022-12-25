@@ -25,6 +25,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-uses-react': 0,
     'react/react-in-jsx-scope': 0,
+    'jsx-a11y/label-has-associated-control': 0,
     // 'linebreak-style': [2, 'windows'],
     'prettier/prettier': [
       'error',
