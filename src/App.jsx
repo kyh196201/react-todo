@@ -1,9 +1,14 @@
 import { useState } from 'react';
+
 import './App.css';
+
+import Body from './components/Body';
+import Footer from './components/Footer';
 import Header from './components/header';
 import TodoFilters from './components/todo-filters';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
+
 import { FILTERS, FILTER_CODES } from './constants';
 import { createTodoId } from './utils';
 
@@ -88,15 +93,17 @@ function App() {
           <TodoFilters filter={filter} onChangeFilter={handleChangeFilter} />
         </Header>
 
-        <div className="body">
+        <Body>
           <TodoList
             todoList={filteredTodoList}
             onDelete={handleDelete}
             onToggle={handleToggle}
           />
-        </div>
+        </Body>
 
-        <TodoForm onAdd={handleAdd} />
+        <Footer>
+          <TodoForm onAdd={handleAdd} />
+        </Footer>
       </main>
     </div>
   );
