@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 import Header from './components/header';
+import TodoFilters from './components/todo-filters';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
+import { FILTERS, FILTER_CODES } from './constants';
 import { createTodoId } from './utils';
 
 const initialTodos = [
@@ -18,8 +20,27 @@ const initialTodos = [
   },
 ];
 
+const filterFunctions = {
+  [FILTER_CODES.ALL](todoList = []) {
+    return todoList;
+  },
+
+  [FILTER_CODES.ACTIVE](todoList = []) {
+    return todoList.filter(todo => !todo.completed);
+  },
+
+  [FILTER_CODES.COMPLETED](todoList = []) {
+    return todoList.filter(todo => todo.completed);
+  },
+};
+
 function App() {
   const [todoList, setTodoList] = useState(initialTodos);
+  const [filter, setFilter] = useState(FILTERS[0]);
+
+  const handleChangeFilter = value => {
+    setFilter(value);
+  };
 
   // 할 일 추가하기
   const handleAdd = text => {
@@ -58,14 +79,18 @@ function App() {
     });
   };
 
+  const filteredTodoList = filterFunctions[filter](todoList);
+
   return (
     <div className="app">
       <main className="container">
-        <Header />
+        <Header>
+          <TodoFilters filter={filter} onChangeFilter={handleChangeFilter} />
+        </Header>
 
         <div className="body">
           <TodoList
-            todoList={todoList}
+            todoList={filteredTodoList}
             onDelete={handleDelete}
             onToggle={handleToggle}
           />

@@ -1,26 +1,34 @@
+import { FILTERS } from '../constants';
 import styles from '../styles/todo-filters.module.css';
 
-export default function TodoFilters() {
+export default function TodoFilters({ filter, onChangeFilter }) {
+  const handleChange = e => {
+    const { value } = e.target;
+
+    onChangeFilter(value);
+  };
+
+  const isChecked = value => value === filter;
+
   return (
     <ul className={styles.list}>
-      <li>
-        <label className={`${styles.filter}`}>
-          <input type="radio" name="filter" />
-          <span>All</span>
-        </label>
-      </li>
-      <li>
-        <label className={`${styles.filter}`}>
-          <input type="radio" name="filter" />
-          <span>Active</span>
-        </label>
-      </li>
-      <li>
-        <label className={styles.filter}>
-          <input type="radio" name="filter" />
-          <span>Completed</span>
-        </label>
-      </li>
+      {FILTERS.map(value => (
+        <li key={value}>
+          <label
+            className={`
+            ${styles.filter} ${isChecked(value) ? styles.active : ''}`}
+          >
+            <input
+              type="radio"
+              name="filter"
+              value={value}
+              checked={isChecked(value)}
+              onChange={handleChange}
+            />
+            <span>{value}</span>
+          </label>
+        </li>
+      ))}
     </ul>
   );
 }

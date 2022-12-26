@@ -1,15 +1,14 @@
 import { BsFillSunFill } from 'react-icons/bs';
 import styles from '../styles/header.module.css';
-import TodoFilters from './todo-filters';
 
-export default function Header() {
+export default function Header({ children }) {
   return (
     <header className={styles.header}>
       <button type="button" className="btn">
         <BsFillSunFill />
       </button>
 
-      <TodoFilters />
+      {children}
     </header>
   );
 }
