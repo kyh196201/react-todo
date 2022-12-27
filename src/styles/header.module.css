@@ -3,5 +3,5 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.6rem 1rem;
-  border-bottom: 2px solid var(--indigo-lighter);
+  border-bottom: 2px solid var(--border-color);
 }

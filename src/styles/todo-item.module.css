@@ -44,7 +44,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--orange);
+  color: var(--point);
 }
 
 .checkbox span:hover {
@@ -56,10 +56,12 @@
   margin: 0 1rem;
   font-size: 1.8rem;
   font-weight: 400;
-  color: var(--white);
+  color: var(--text-color);
 }
 
 .delete {
   border-radius: 50%;
-  background-color: var(--indigo-lighter);
+  /* TODO: */
+  /* background-color: var(--indigo-lighter); */
+  background-color: #cccccc;
 }

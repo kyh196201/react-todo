@@ -9,8 +9,12 @@
   --indigo-light: #222439;
   --indigo-lighter: #333748;
 
-  --bg-color: #4b5063;
-  --point: var(--orange);
+  --point: var(--indigo);
+  --bg-color: #f2f2f2;
+  --text-color: var(--point);
+  --border-color: #dddddd;
+  --container-color: #f4f4f4;
+  --body-color: #eeeeee;
 }
 
 * {
@@ -38,7 +42,7 @@ body {
 .container {
   width: 500px;
   border-radius: 12px;
-  background-color: var(--indigo);
+  background-color: var(--container-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -49,7 +53,7 @@ body {
   align-items: center;
   width: 2rem;
   height: 2rem;
-  color: var(--white);
+  color: var(--point);
   background: transparent;
   transition: opacity 0.2s;
 }
@@ -60,6 +64,10 @@ body {
 
 /* dark mode */
 .ui-dark {
-  --bg-color: #f2f2f2;
-  /* --point: var(--indigo); */
+  --point: var(--orange);
+  --bg-color: #4b5063;
+  --text-color: var(--white);
+  --border-color: var(--indigo-lighter);
+  --container-color: var(--indigo);
+  --body-color: var(--indigo-light);
 }

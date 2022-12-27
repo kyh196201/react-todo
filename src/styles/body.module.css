@@ -1,5 +1,5 @@
 .body {
   padding: 1rem;
   min-height: 300px;
-  background-color: var(--indigo-light);
+  background-color: var(--body-color);
 }
