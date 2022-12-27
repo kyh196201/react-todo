@@ -15,9 +15,9 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
   const { text, completed } = todo;
 
   return (
-    <li className={styles['todo-item']}>
+    <li className={`${styles.todo} ${completed ? styles.completed : ''}`}>
       {/* TODO: checkbox 컴포넌트로 분리하기 */}
-      <label className={styles['todo-item__checkbox']}>
+      <label className={styles.checkbox}>
         <input
           type="checkbox"
           checked={todo.completed}
@@ -28,7 +28,7 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
 
       <p
         className={`
-          ${styles['todo-item__text']} ${completed ? styles.completed : ''}
+          ${styles.text} ${completed ? styles.completed : ''}
         `}
       >
         {text}
@@ -36,7 +36,7 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
 
       <button
         type="button"
-        className={`btn ${styles['todo-item__delete']}`}
+        className={`btn ${styles.delete}`}
         onClick={handleDelete}
       >
         <AiFillDelete />

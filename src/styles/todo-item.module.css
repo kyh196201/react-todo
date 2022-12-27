@@ -1,23 +1,28 @@
-.todo-item {
+.todo {
   display: flex;
   align-items: center;
 }
 
-.todo-item:not(:first-child) {
+.todo:not(:first-child) {
   margin-top: 1.2rem;
 }
 
+.todo.completed .text {
+  text-decoration: line-through;
+  color: var(--grey);  
+}
+
 /* checkbox styles */
-.todo-item__checkbox {
+.checkbox {
   display: inline-block;
   cursor: pointer;
 }
 
-.todo-item__checkbox input {
+.checkbox input {
   display: none;
 }
 
-.todo-item__checkbox span {
+.checkbox span {
   display: block;
   position: relative;
   width: 2rem;
@@ -28,7 +33,7 @@
   transition: opacity 0.2s;
 }
 
-.todo-item__checkbox input:checked + span::after {
+.checkbox input:checked + span::after {
   content:'✔';
   position: absolute;
   top: 50%;
@@ -42,11 +47,11 @@
   color: var(--orange);
 }
 
-.todo-item__checkbox span:hover {
+.checkbox span:hover {
   opacity: 0.8;
 }
 
-.todo-item__text {
+.text {
   flex: 1;
   margin: 0 1rem;
   font-size: 1.8rem;
@@ -54,12 +59,7 @@
   color: var(--white);
 }
 
-.completed {
-  text-decoration: line-through;
-  color: var(--grey);
-}
-
-.todo-item__delete {
+.delete {
   border-radius: 50%;
   background-color: var(--indigo-lighter);
 }
