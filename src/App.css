@@ -2,13 +2,15 @@
 @import './styles/reset.css';
 
 :root {
-  --app-bg: #4b5063;
   --white: #ffffff;
-  --point: #f0852d;
-  --space: #333748;
-  --main: #1a1c33;
-  --main-light: #222439;
+  --orange: #f0852d;
   --grey: #888888;
+  --indigo: #1a1c33;
+  --indigo-light: #222439;
+  --indigo-lighter: #333748;
+
+  --bg-color: #4b5063;
+  --point: var(--orange);
 }
 
 * {
@@ -24,18 +26,19 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+/* layouts */
 .app {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--app-bg);
+  background-color: var(--bg-color);
 }
 
 .container {
   width: 500px;
   border-radius: 12px;
-  background-color: var(--main);
+  background-color: var(--indigo);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -53,4 +56,10 @@ body {
 
 .btn:hover {
   opacity: 0.8;
+}
+
+/* dark mode */
+.ui-dark {
+  --bg-color: #f2f2f2;
+  /* --point: var(--indigo); */
 }

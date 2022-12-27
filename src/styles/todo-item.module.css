@@ -39,7 +39,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--point);
+  color: var(--orange);
 }
 
 .todo-item__checkbox span:hover {
@@ -61,5 +61,5 @@
 
 .todo-item__delete {
   border-radius: 50%;
-  background-color: var(--space);
+  background-color: var(--indigo-lighter);
 }

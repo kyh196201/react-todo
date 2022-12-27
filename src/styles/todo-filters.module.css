@@ -10,7 +10,7 @@
 .filter {
   position: relative;
   font-size: 1.4rem;
-  color: var(--point);
+  color: var(--orange);
   cursor: pointer;
   transition: opacity 0.2s;
 }
