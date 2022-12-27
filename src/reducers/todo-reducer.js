@@ -1,6 +1,6 @@
 import { createTodoId } from '../utils';
 
-export const initialTodos = [
+export const initialTodoList = [
   {
     id: 1,
     text: '드림코딩 과제 완료하기',

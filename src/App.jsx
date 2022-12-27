@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 
 import './App.css';
 
@@ -11,7 +11,8 @@ import TodoList from './components/todo-list';
 import ThemeProvider from './contexts/theme-context';
 
 import { FILTERS, FILTER_CODES } from './constants';
-import todoReducer, { initialTodos } from './reducers/todo-reducer';
+import todoReducer, { initialTodoList } from './reducers/todo-reducer';
+import { getItem, setItem } from './utils/storage';
 
 const filterFunctions = {
   [FILTER_CODES.ALL](todoList = []) {
@@ -28,8 +29,16 @@ const filterFunctions = {
 };
 
 function App() {
-  const [todoList, dispatch] = useReducer(todoReducer, initialTodos);
+  const savedTodoList = getItem('todoList');
+  const [todoList, dispatch] = useReducer(
+    todoReducer,
+    savedTodoList ? JSON.parse(savedTodoList) : initialTodoList,
+  );
   const [filter, setFilter] = useState(FILTERS[0]);
+
+  useEffect(() => {
+    setItem('todoList', JSON.stringify(todoList));
+  }, [todoList]);
 
   const handleChangeFilter = value => {
     setFilter(value);

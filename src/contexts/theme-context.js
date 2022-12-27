@@ -1,9 +1,10 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
+import { getItem, setItem } from '../utils/storage';
 
 export const ThemeContext = createContext(null);
 
 export default function ThemeProvider({ children }) {
-  const savedTheme = window.localStorage.getItem('theme') || 'light';
+  const savedTheme = getItem('theme') || 'light';
   const [theme, setTheme] = useState(savedTheme);
 
   const changeTheme = useCallback(() => {
@@ -17,7 +18,7 @@ export default function ThemeProvider({ children }) {
       document.documentElement.classList.remove('ui-dark');
     }
 
-    localStorage.setItem('theme', theme);
+    setItem('theme', theme);
   }, [theme]);
 
   return (
