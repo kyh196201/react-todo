@@ -8,6 +8,7 @@ import Header from './components/header';
 import TodoFilters from './components/todo-filters';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
+import ThemeProvider from './contexts/theme-context';
 
 import { FILTERS, FILTER_CODES } from './constants';
 import todoReducer, { initialTodos } from './reducers/todo-reducer';
@@ -61,25 +62,27 @@ function App() {
   const filteredTodoList = filterFunctions[filter](todoList);
 
   return (
-    <div className="app">
-      <main className="container">
-        <Header>
-          <TodoFilters filter={filter} onChangeFilter={handleChangeFilter} />
-        </Header>
+    <ThemeProvider>
+      <div className="app">
+        <main className="container">
+          <Header>
+            <TodoFilters filter={filter} onChangeFilter={handleChangeFilter} />
+          </Header>
 
-        <Body>
-          <TodoList
-            todoList={filteredTodoList}
-            onDelete={handleDelete}
-            onToggle={handleToggle}
-          />
-        </Body>
+          <Body>
+            <TodoList
+              todoList={filteredTodoList}
+              onDelete={handleDelete}
+              onToggle={handleToggle}
+            />
+          </Body>
 
-        <Footer>
-          <TodoForm onAdd={handleAdd} />
-        </Footer>
-      </main>
-    </div>
+          <Footer>
+            <TodoForm onAdd={handleAdd} />
+          </Footer>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
