@@ -61,7 +61,6 @@
 
 .delete {
   border-radius: 50%;
-  /* TODO: */
-  /* background-color: var(--indigo-lighter); */
-  background-color: #cccccc;
+  background-color: var(--delete-bg-color);
+  color: var(--delete-btn-color);
 }
