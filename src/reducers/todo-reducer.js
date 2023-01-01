@@ -21,20 +21,19 @@ export default function todoReducer(todoList, action) {
 
   // 할 일 삭제
   if (type === 'delete') {
-    return todoList.filter(todo => todo.id !== payload.id);
+    return todoList.filter(todo => todo.id !== payload.deleted.id);
   }
 
   // 할 일 토글
   if (type === 'toggle') {
-    const { id, checked } = payload;
+    const { toggled } = payload;
 
     return todoList.map(todo => {
-      if (todo.id !== id) return todo;
+      if (todo.id !== toggled.id) {
+        return todo;
+      }
 
-      return {
-        ...todo,
-        completed: checked,
-      };
+      return toggled;
     });
   }
 

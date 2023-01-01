@@ -1,6 +1,8 @@
 import { FILTERS } from '../constants';
 import styles from '../styles/todo-filters.module.css';
 
+// FIXME: filters props로 전달받기
+// FIXME: handleChange e.target.value 대신 렌더링되는 곳의 value 바로 사용하기
 export default function TodoFilters({ filter, onChangeFilter }) {
   const handleChange = e => {
     const { value } = e.target;

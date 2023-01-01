@@ -3,13 +3,14 @@ import styles from '../styles/todo-item.module.css';
 
 export default function TodoItem({ todo, onDelete, onToggle }) {
   const handleChange = e => {
-    const { target } = e;
-
-    onToggle(todo.id, target.checked);
+    onToggle({
+      ...todo,
+      completed: e.target.checked,
+    });
   };
 
   const handleDelete = () => {
-    onDelete(todo.id);
+    onDelete(todo);
   };
 
   const { text, completed } = todo;

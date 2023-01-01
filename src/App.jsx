@@ -53,20 +53,18 @@ function App() {
   };
 
   // 할 일 삭제하기
-  // FIXME: id => deleted
-  const handleDelete = id => {
+  const handleDelete = deleted => {
     dispatch({
       type: 'delete',
-      payload: { id },
+      payload: { deleted },
     });
   };
 
   // 할 일 토글하기
-  // FIXME: 파라미터 updated 하나로만 사용하기
-  const handleToggle = (id, checked = true) => {
+  const handleToggle = toggled => {
     dispatch({
       type: 'toggle',
-      payload: { id, checked },
+      payload: { toggled },
     });
   };
 
