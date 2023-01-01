@@ -4,10 +4,10 @@ import './App.css';
 
 import Body from './components/Body';
 import Footer from './components/Footer';
-import Header from './components/header';
-import TodoFilters from './components/todo-filters';
-import TodoForm from './components/todo-form';
-import TodoList from './components/todo-list';
+import Header from './components/Header';
+import TodoFilters from './components/Filters';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 import ThemeProvider from './contexts/theme-context';
 
 import { FILTERS, FILTER_CODES } from './constants';

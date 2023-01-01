@@ -1,4 +1,4 @@
-import styles from '../styles/todo-filters.module.css';
+import styles from '../styles/Filters.module.css';
 
 export default function TodoFilters({ filters, filter, onChangeFilter }) {
   const isChecked = value => value === filter;

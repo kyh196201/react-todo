@@ -1,5 +1,5 @@
 import { AiFillDelete } from 'react-icons/ai';
-import styles from '../styles/todo-item.module.css';
+import styles from '../styles/TodoItem.module.css';
 
 export default function TodoItem({ todo, onDelete, onToggle }) {
   const handleChange = e => {

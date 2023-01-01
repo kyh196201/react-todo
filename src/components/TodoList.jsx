@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import styles from '../styles/todo-list.module.css';
+import styles from '../styles/TodoList.module.css';
 
-import TodoItem from './todo-item';
+import TodoItem from './TodoItem';
 
 export default function TodoList({ todoList = [], onDelete, onToggle }) {
   if (!todoList.length) {
