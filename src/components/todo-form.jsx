@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createTodoId } from '../utils';
 import styles from '../styles/todo-form.module.css';
 
 export default function TodoForm({ onAdd }) {
@@ -14,7 +15,11 @@ export default function TodoForm({ onAdd }) {
 
     if (!text.length) return;
 
-    onAdd(text);
+    onAdd({
+      id: createTodoId(),
+      text,
+      completed: false,
+    });
 
     setTodoInput('');
   };

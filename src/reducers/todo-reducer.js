@@ -1,5 +1,3 @@
-import { createTodoId } from '../utils';
-
 export const initialTodoList = [
   {
     id: 1,
@@ -18,16 +16,7 @@ export default function todoReducer(todoList, action) {
 
   // 할 일 추가
   if (type === 'add') {
-    const newId = createTodoId(todoList);
-
-    return [
-      ...todoList,
-      {
-        id: newId,
-        text: payload.text,
-        completed: false,
-      },
-    ];
+    return [...todoList, payload.todo];
   }
 
   // 할 일 삭제

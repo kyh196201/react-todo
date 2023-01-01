@@ -45,14 +45,15 @@ function App() {
   };
 
   // 할 일 추가하기
-  const handleAdd = text => {
+  const handleAdd = todo => {
     dispatch({
       type: 'add',
-      payload: { text },
+      payload: { todo },
     });
   };
 
   // 할 일 삭제하기
+  // FIXME: id => deleted
   const handleDelete = id => {
     dispatch({
       type: 'delete',
@@ -61,6 +62,7 @@ function App() {
   };
 
   // 할 일 토글하기
+  // FIXME: 파라미터 updated 하나로만 사용하기
   const handleToggle = (id, checked = true) => {
     dispatch({
       type: 'toggle',
