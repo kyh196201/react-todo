@@ -1,11 +1,20 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
-import { getItem, setItem } from '../utils/storage';
+import { setItem } from '../utils/storage';
+
+function getInitialTheme() {
+  const isDark =
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  return isDark ? 'dark' : 'light';
+}
 
 export const ThemeContext = createContext(null);
 
 export default function ThemeProvider({ children }) {
-  const savedTheme = getItem('theme') || 'light';
-  const [theme, setTheme] = useState(savedTheme);
+  const initialTheme = getInitialTheme();
+  const [theme, setTheme] = useState(initialTheme);
 
   const changeTheme = useCallback(() => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
