@@ -28,11 +28,17 @@ const filterFunctions = {
   },
 };
 
+const readTodoListFromLocalStorage = () => {
+  const todoList = getItem('todoList');
+
+  return todoList ? JSON.parse(todoList) : initialTodoList;
+};
+
 function App() {
-  const savedTodoList = getItem('todoList');
   const [todoList, dispatch] = useReducer(
     todoReducer,
-    savedTodoList ? JSON.parse(savedTodoList) : initialTodoList,
+    [],
+    readTodoListFromLocalStorage,
   );
   const [filter, setFilter] = useState(FILTERS[0]);
 
