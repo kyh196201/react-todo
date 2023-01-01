@@ -19,3 +19,7 @@
   font-size: 1.8rem;
   color: var(--white);
 }
+
+.add:hover {
+  filter: brightness(125%);
+}

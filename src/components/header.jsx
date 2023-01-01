@@ -8,7 +8,11 @@ export default function Header({ children }) {
 
   return (
     <header className={styles.header}>
-      <button type="button" className="btn" onClick={() => changeTheme()}>
+      <button
+        type="button"
+        className="btn icon-btn"
+        onClick={() => changeTheme()}
+      >
         {theme === 'light' ? <BsFillMoonFill /> : <BsFillSunFill />}
       </button>
 

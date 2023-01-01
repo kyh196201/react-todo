@@ -37,7 +37,7 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
 
       <button
         type="button"
-        className={`btn ${styles.delete}`}
+        className={`btn icon-btn ${styles.delete}`}
         onClick={handleDelete}
       >
         <AiFillDelete />

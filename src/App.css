@@ -61,11 +61,15 @@ body {
   height: 2rem;
   color: var(--point);
   background: transparent;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
   opacity: 0.8;
+}
+
+.icon-btn:hover {
+  transform: rotate(25deg) scale(1.2);
 }
 
 /* dark mode */
