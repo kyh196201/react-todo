@@ -28,21 +28,20 @@ html {
 }
 
 body {
-  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
   font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.2;
 }
 
 /* layouts */
 .app {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: var(--bg-color);
-}
-
-.container {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   border-radius: 12px;
   background-color: var(--container-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

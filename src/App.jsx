@@ -68,29 +68,27 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="app">
-        <main className="container">
-          <Header>
-            <TodoFilters
-              filters={FILTERS}
-              filter={filter}
-              onChangeFilter={setFilter}
-            />
-          </Header>
+      <>
+        <Header>
+          <TodoFilters
+            filters={FILTERS}
+            filter={filter}
+            onChangeFilter={setFilter}
+          />
+        </Header>
 
-          <Body>
-            <TodoList
-              todoList={filteredTodoList}
-              onDelete={handleDelete}
-              onToggle={handleToggle}
-            />
-          </Body>
+        <Body>
+          <TodoList
+            todoList={filteredTodoList}
+            onDelete={handleDelete}
+            onToggle={handleToggle}
+          />
+        </Body>
 
-          <Footer>
-            <TodoForm onAdd={handleAdd} />
-          </Footer>
-        </main>
-      </div>
+        <Footer>
+          <TodoForm onAdd={handleAdd} />
+        </Footer>
+      </>
     </ThemeProvider>
   );
 }
