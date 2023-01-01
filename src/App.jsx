@@ -40,10 +40,6 @@ function App() {
     setItem('todoList', JSON.stringify(todoList));
   }, [todoList]);
 
-  const handleChangeFilter = value => {
-    setFilter(value);
-  };
-
   // 할 일 추가하기
   const handleAdd = todo => {
     dispatch({
@@ -75,7 +71,11 @@ function App() {
       <div className="app">
         <main className="container">
           <Header>
-            <TodoFilters filter={filter} onChangeFilter={handleChangeFilter} />
+            <TodoFilters
+              filters={FILTERS}
+              filter={filter}
+              onChangeFilter={setFilter}
+            />
           </Header>
 
           <Body>

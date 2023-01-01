@@ -1,20 +1,11 @@
-import { FILTERS } from '../constants';
 import styles from '../styles/todo-filters.module.css';
 
-// FIXME: filters props로 전달받기
-// FIXME: handleChange e.target.value 대신 렌더링되는 곳의 value 바로 사용하기
-export default function TodoFilters({ filter, onChangeFilter }) {
-  const handleChange = e => {
-    const { value } = e.target;
-
-    onChangeFilter(value);
-  };
-
+export default function TodoFilters({ filters, filter, onChangeFilter }) {
   const isChecked = value => value === filter;
 
   return (
     <ul className={styles.list}>
-      {FILTERS.map(value => (
+      {filters.map(value => (
         <li key={value}>
           <label
             className={`
@@ -25,7 +16,7 @@ export default function TodoFilters({ filter, onChangeFilter }) {
               name="filter"
               value={value}
               checked={isChecked(value)}
-              onChange={handleChange}
+              onChange={() => onChangeFilter(value)}
             />
             <span>{value}</span>
           </label>
