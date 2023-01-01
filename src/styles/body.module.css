@@ -1,5 +1,29 @@
 .body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
   padding: 1rem;
   min-height: 300px;
   background-color: var(--body-color);
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  scrollbar-width: auto;
+  scrollbar-color: #807e81 var(--body-color);
+
+}
+
+/* Chrome, Edge, and Safari */
+.body::-webkit-scrollbar {
+  width: 16px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: var(--body-color);
+}
+
+.body::-webkit-scrollbar-thumb {
+  background-color: #807e81;
+  border-radius: 10px;
+  border: 5px solid var(--body-color);
 }
