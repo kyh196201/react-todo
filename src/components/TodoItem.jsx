@@ -1,11 +1,12 @@
 import { AiFillDelete } from 'react-icons/ai';
 import styles from '../styles/TodoItem.module.css';
+import Checkbox from './Checkbox/Checkbox';
 
 export default function TodoItem({ todo, onDelete, onToggle }) {
-  const handleChange = e => {
+  const handleChange = checked => {
     onToggle({
       ...todo,
-      completed: e.target.checked,
+      completed: checked,
     });
   };
 
@@ -17,15 +18,9 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
 
   return (
     <li className={`${styles.todo} ${completed ? styles.completed : ''}`}>
-      {/* TODO: checkbox 컴포넌트로 분리하기 */}
-      <label className={styles.checkbox}>
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={handleChange}
-        />
-        <span>할 일 완료하기</span>
-      </label>
+      <Checkbox checked={completed} onChange={handleChange}>
+        할 일 완료하기
+      </Checkbox>
 
       <p
         className={`

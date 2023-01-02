@@ -1,0 +1,37 @@
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox span {
+  display: block;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--white);
+  border-radius: 2px;
+  font-size: 0;
+  transition: opacity 0.2s;
+}
+
+.checkbox input:checked + span::after {
+  content:'✔';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -0.5em;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--point);
+}
+
+.checkbox span:hover {
+  opacity: 0.8;
+}
