@@ -1,4 +1,10 @@
-import { createContext, useState, useCallback, useEffect } from 'react';
+import {
+  useContext,
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import { setItem } from '../utils/storage';
 
 function getInitialTheme() {
@@ -10,15 +16,17 @@ function getInitialTheme() {
   return isDark ? 'dark' : 'light';
 }
 
-export const ThemeContext = createContext(null);
+const ThemeContext = createContext(null);
 
 export default function ThemeProvider({ children }) {
   const initialTheme = getInitialTheme();
   const [theme, setTheme] = useState(initialTheme);
 
   const changeTheme = useCallback(() => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  }, []);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+
+    setTheme(newTheme);
+  }, [theme]);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -37,3 +45,7 @@ export default function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
+
+export const useTheme = () => {
+  return useContext(ThemeContext);
+};
