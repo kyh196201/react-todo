@@ -2,9 +2,9 @@ import { useState, useReducer, useEffect } from 'react';
 
 import './App.css';
 
-import Body from './components/Body';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import AppBody from './components/AppBody';
+import AppFooter from './components/AppFooter';
+import AppHeader from './components/AppHeader';
 import TodoFilters from './components/Filters';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
@@ -75,25 +75,25 @@ function App() {
   return (
     <ThemeProvider>
       <>
-        <Header>
+        <AppHeader>
           <TodoFilters
             filters={FILTERS}
             filter={filter}
             onChangeFilter={setFilter}
           />
-        </Header>
+        </AppHeader>
 
-        <Body>
+        <AppBody>
           <TodoList
             todoList={filteredTodoList}
             onDelete={handleDelete}
             onToggle={handleToggle}
           />
-        </Body>
+        </AppBody>
 
-        <Footer>
+        <AppFooter>
           <TodoForm onAdd={handleAdd} />
-        </Footer>
+        </AppFooter>
       </>
     </ThemeProvider>
   );

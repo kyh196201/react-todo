@@ -1,8 +1,8 @@
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
 import { useTheme } from '../contexts/theme-context';
-import styles from '../styles/Header.module.css';
+import styles from '../styles/AppHeader.module.css';
 
-export default function Header({ children }) {
+export default function AppHeader({ children }) {
   const { theme, changeTheme } = useTheme();
 
   return (
