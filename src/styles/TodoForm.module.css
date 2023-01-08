@@ -9,6 +9,8 @@
   border-bottom-left-radius: 4px;
   font-size: 1.8rem;
   font-weight: 400;
+  color: var(--indigo);
+  background-color: var(--white);
 }
 
 .add {

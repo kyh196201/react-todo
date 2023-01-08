@@ -8,6 +8,7 @@
   --indigo: #1a1c33;
   --indigo-light: #222439;
   --indigo-lighter: #333748;
+  --black: #222222;
 
   --point: var(--indigo);
   --bg-color: #f2f2f2;
@@ -17,6 +18,8 @@
   --body-color: #eeeeee;
   --delete-btn-color: var(--indigo);
   --delete-bg-color: #cccccc;
+  --todo-input-text-color: var(--indigo);
+  --todo-input-bg-color: var(--white);
 }
 
 * {

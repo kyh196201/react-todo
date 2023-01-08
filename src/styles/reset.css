@@ -53,8 +53,15 @@ input {
 	outline: none;
 	margin: 0;
 	padding: 0;
+	font-family: inherit;
 }
 
 button {
 	cursor: pointer;
+}
+
+input {
+	background-color: transparent;
+	color: inherit;
+	line-height: inherit;
 }

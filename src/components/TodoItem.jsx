@@ -22,13 +22,10 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
         할 일 완료하기
       </Checkbox>
 
-      <p
-        className={`
-          ${styles.text} ${completed ? styles.completed : ''}
-        `}
-      >
-        {text}
-      </p>
+      <div className={styles.contents}>
+        <p className={styles.text}>{text}</p>
+        {/* <input type="text" className={styles.input} value={text} /> */}
+      </div>
 
       <button
         type="button"

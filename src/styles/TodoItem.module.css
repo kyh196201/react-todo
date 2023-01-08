@@ -4,7 +4,7 @@
 }
 
 .todo:not(:first-child) {
-  margin-top: 1.2rem;
+  margin-top: 1.8rem;
 }
 
 .todo.completed .text {
@@ -12,12 +12,30 @@
   color: var(--grey);  
 }
 
-.text {
+.contents {
   flex: 1;
   margin: 0 1rem;
+}
+
+.text,
+.input {
+  padding: 0.5rem 0;
   font-size: 1.8rem;
   font-weight: 400;
+}
+
+.text {
   color: var(--text-color);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: var(--todo-input-text-color);
+  background-color: var(--todo-input-bg-color);
+  border-radius: 0.4rem;
 }
 
 .delete {
