@@ -1,4 +1,4 @@
-import { AiFillDelete } from 'react-icons/ai';
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
 import styles from '../styles/TodoItem.module.css';
 import Checkbox from './Checkbox/Checkbox';
 
@@ -27,13 +27,19 @@ export default function TodoItem({ todo, onDelete, onToggle }) {
         {/* <input type="text" className={styles.input} value={text} /> */}
       </div>
 
-      <button
-        type="button"
-        className={`btn icon-btn ${styles.delete}`}
-        onClick={handleDelete}
-      >
-        <AiFillDelete />
-      </button>
+      <div className={styles.control}>
+        <button type="button" className={`btn icon-btn ${styles.button}`}>
+          <AiFillEdit />
+        </button>
+
+        <button
+          type="button"
+          className={`btn icon-btn ${styles.button}`}
+          onClick={handleDelete}
+        >
+          <AiFillDelete />
+        </button>
+      </div>
     </li>
   );
 }

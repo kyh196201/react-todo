@@ -38,8 +38,18 @@
   border-radius: 0.4rem;
 }
 
-.delete {
+.control {
+  display: flex;
+  align-items: center;
+  flex: 0;
+}
+
+.button {
   border-radius: 50%;
   background-color: var(--delete-bg-color);
   color: var(--delete-btn-color);
+}
+
+.button:not(:first-child) {
+  margin-left: 1rem;
 }
