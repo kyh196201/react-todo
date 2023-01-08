@@ -34,6 +34,10 @@ const readTodoListFromLocalStorage = () => {
   return todoList ? JSON.parse(todoList) : initialTodoList;
 };
 
+const filterTodoList = (todoList, filter) => {
+  return filterFunctions[filter](todoList);
+};
+
 function App() {
   const [todoList, dispatch] = useReducer(
     todoReducer,
@@ -70,7 +74,7 @@ function App() {
     });
   };
 
-  const filteredTodoList = filterFunctions[filter](todoList);
+  const filteredTodoList = filterTodoList(todoList, filter);
 
   return (
     <ThemeProvider>
