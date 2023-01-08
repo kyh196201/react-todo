@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import useTodoInput from '../hooks/useTodoInput';
 import styles from '../styles/TodoItem.module.css';
 import Checkbox from './Checkbox/Checkbox';
 
@@ -11,15 +11,7 @@ export default function TodoItem({
   onStartEdit,
   onCompleteEdit,
 }) {
-  const [inputTitle, setInputTitle] = useState(todo.text);
-
-  useEffect(() => {
-    setInputTitle(todo.text);
-  }, [todo]);
-
-  const handleChangeInputTitle = e => {
-    setInputTitle(e.target.value);
-  };
+  const [todoInput, handleChangeTodoInput] = useTodoInput(todo);
 
   const handleStartEdit = () => {
     onStartEdit(todo);
@@ -28,7 +20,7 @@ export default function TodoItem({
   const haandleCompleteEdit = () => {
     const newTodo = {
       ...todo,
-      text: inputTitle.trim(),
+      text: todoInput.trim(),
     };
 
     onCompleteEdit(newTodo);
@@ -58,8 +50,8 @@ export default function TodoItem({
           <input
             type="text"
             className={styles.input}
-            value={inputTitle}
-            onChange={handleChangeInputTitle}
+            value={todoInput}
+            onChange={handleChangeTodoInput}
             onBlur={haandleCompleteEdit}
           />
         )}
