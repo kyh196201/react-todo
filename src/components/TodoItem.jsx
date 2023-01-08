@@ -1,5 +1,6 @@
+import { useRef, useEffect } from 'react';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
-import useTodoInput from '../hooks/useTodoInput';
+import useEditorInput from '../hooks/useEditorInput';
 import styles from '../styles/TodoItem.module.css';
 import Checkbox from './Checkbox/Checkbox';
 
@@ -11,16 +12,24 @@ export default function TodoItem({
   onStartEdit,
   onCompleteEdit,
 }) {
-  const [todoInput, handleChangeTodoInput] = useTodoInput(todo);
+  const [editorInput, handleChangeEditorInput] = useEditorInput(todo);
+
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    if (!isEdit) return;
+
+    editorRef?.current?.focus();
+  }, [isEdit]);
 
   const handleStartEdit = () => {
     onStartEdit(todo);
   };
 
-  const haandleCompleteEdit = () => {
+  const handleCompleteEdit = () => {
     const newTodo = {
       ...todo,
-      text: todoInput.trim(),
+      text: editorInput.trim(),
     };
 
     onCompleteEdit(newTodo);
@@ -50,9 +59,10 @@ export default function TodoItem({
           <input
             type="text"
             className={styles.input}
-            value={todoInput}
-            onChange={handleChangeTodoInput}
-            onBlur={haandleCompleteEdit}
+            value={editorInput}
+            ref={editorRef}
+            onChange={handleChangeEditorInput}
+            onBlur={handleCompleteEdit}
           />
         )}
         {!isEdit && <p className={styles.text}>{text}</p>}
