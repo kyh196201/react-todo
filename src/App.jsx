@@ -46,6 +46,8 @@ function App() {
   );
   const [filter, setFilter] = useState(FILTERS[0]);
 
+  const [editingTodo, setEditingTodo] = useState(null);
+
   useEffect(() => {
     setItem('todoList', JSON.stringify(todoList));
   }, [todoList]);
@@ -74,6 +76,19 @@ function App() {
     });
   };
 
+  const handleStartEdit = todo => {
+    setEditingTodo(todo);
+  };
+
+  const handleCompleteEdit = edited => {
+    dispatch({
+      type: 'edit',
+      payload: { edited },
+    });
+
+    setEditingTodo(null);
+  };
+
   const filteredTodoList = filterTodoList(todoList, filter);
 
   return (
@@ -90,8 +105,11 @@ function App() {
         <AppBody>
           <TodoList
             todoList={filteredTodoList}
+            editingTodo={editingTodo}
             onDelete={handleDelete}
             onToggle={handleToggle}
+            onStartEdit={handleStartEdit}
+            onCompleteEdit={handleCompleteEdit}
           />
         </AppBody>
 

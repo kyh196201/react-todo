@@ -37,5 +37,18 @@ export default function todoReducer(todoList, action) {
     });
   }
 
+  // 할 일 수정
+  if (type === 'edit') {
+    const { edited } = payload;
+
+    return todoList.map(todo => {
+      if (todo.id !== edited.id) {
+        return todo;
+      }
+
+      return edited;
+    });
+  }
+
   return todoList;
 }
