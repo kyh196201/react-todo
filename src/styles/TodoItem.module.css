@@ -26,6 +26,7 @@
 
 .text {
   color: var(--text-color);
+  word-break: break-all;
 }
 
 .input {
