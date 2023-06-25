@@ -35,6 +35,12 @@ export default function TodoItem({
     onCompleteEdit(newTodo);
   };
 
+  const handleKeyup = e => {
+    if (e.key === 'Enter') {
+      editorRef.current.blur();
+    }
+  };
+
   const handleChange = checked => {
     onToggle({
       ...todo,
@@ -63,6 +69,7 @@ export default function TodoItem({
             ref={editorRef}
             onChange={handleChangeEditorInput}
             onBlur={handleCompleteEdit}
+            onKeyUp={handleKeyup}
           />
         )}
         {!isEdit && <p className={styles.text}>{text}</p>}
